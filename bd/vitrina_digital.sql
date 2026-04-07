@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 01-04-2026 a las 19:37:10
+-- Tiempo de generación: 02-04-2026 a las 21:38:24
 -- Versión del servidor: 8.0.17
 -- Versión de PHP: 7.3.10
 
@@ -90,6 +90,7 @@ CREATE TABLE `productos` (
   `id_categoria` int(11) DEFAULT NULL,
   `etiqueta` varchar(50) DEFAULT NULL,
   `visible` tinyint(4) DEFAULT '1',
+  `por_encargo` tinyint(1) DEFAULT '0',
   `activo` tinyint(4) DEFAULT '1',
   `fecha_alta` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -98,18 +99,19 @@ CREATE TABLE `productos` (
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`id_producto`, `codigo`, `nombre`, `marca`, `descripcion`, `precio`, `stock`, `id_categoria`, `etiqueta`, `visible`, `activo`, `fecha_alta`) VALUES
-(1, 'PROD001', 'Laptop HP', 'HP', 'Laptop para trabajo y gaming', '14500.00', 5, 1, 'Nuevo', 1, 1, '2026-03-30 21:43:27'),
-(2, 'PROD002', 'iPhone 13', 'IPHONE', 'Celular Apple de última generación', '18000.00', 8, 1, 'Popular', 1, 1, '2026-03-30 21:43:27'),
-(3, 'PROD003', 'Playera Nike', 'NIKE', 'Playera deportiva cómoda', '350.00', 20, 2, 'Oferta', 1, 1, '2026-03-30 21:43:27'),
-(4, 'PROD004', 'Tenis Adidas', 'ADIDAS', 'Tenis para correr', '1200.00', 15, 2, 'Nuevo', 1, 1, '2026-03-30 21:43:27'),
-(5, 'PROD005', 'Reloj Smartwatch', 'IPHONE', 'Reloj inteligente con sensores', '900.00', 10, 3, 'Popular', 1, 1, '2026-03-30 21:43:27'),
-(6, 'PROD006', 'Audífonos Bluetooth', 'IPHONE', 'Sonido envolvente inalámbrico', '600.00', 25, 3, 'Oferta', 1, 1, '2026-03-30 21:43:27'),
-(7, 'PROD007', 'Licuadora', 'OSTER', 'Licuadora de alta potencia', '850.00', 7, 4, 'Nuevo', 1, 1, '2026-03-30 21:43:27'),
-(8, 'PROD008', 'Silla Gamer', 'GM', 'Silla ergonómica para gaming', '2500.00', 4, 4, 'Popular', 1, 1, '2026-03-30 21:43:27'),
-(9, 'PROD009', 'Balón de fútbol', 'MOLTEN', 'Balón profesional', '400.00', 30, 5, 'Oferta', 1, 1, '2026-03-30 21:43:27'),
-(10, 'PROD010', 'Mancuernas 10kg', 'WILSON', 'Set de mancuernas', '950.00', 12, 5, 'Nuevo', 1, 1, '2026-03-30 21:43:27'),
-(11, 'PROD011', 'Colores Prisma', 'WILSON', '48 Colores prsma color premier', '2230.00', 1, 9, 'Nuevo', 1, 1, '2026-03-30 21:43:27');
+INSERT INTO `productos` (`id_producto`, `codigo`, `nombre`, `marca`, `descripcion`, `precio`, `stock`, `id_categoria`, `etiqueta`, `visible`, `por_encargo`, `activo`, `fecha_alta`) VALUES
+(1, 'PROD001', 'Laptop HP', 'HP', 'Laptop para trabajo y gaming', '14500.00', 5, 1, 'Nuevo', 1, 0, 1, '2026-03-30 21:43:27'),
+(2, 'PROD002', 'iPhone 13', 'IPHONE', 'Celular Apple de última generación', '18000.00', 8, 1, 'Popular', 1, 0, 1, '2026-03-30 21:43:27'),
+(3, 'PROD003', 'Playera Nike', 'NIKE', 'Playera deportiva cómoda', '350.00', 20, 2, 'Oferta', 1, 0, 1, '2026-03-30 21:43:27'),
+(4, 'PROD004', 'Tenis Adidas', 'ADIDAS', 'Tenis para correr', '1200.00', 15, 2, 'Nuevo', 1, 0, 1, '2026-03-30 21:43:27'),
+(5, 'PROD005', 'Reloj Smartwatch', 'IPHONE', 'Reloj inteligente con sensores', '900.00', 10, 3, 'Popular', 1, 0, 1, '2026-03-30 21:43:27'),
+(6, 'PROD006', 'Audífonos Bluetooth', 'IPHONE', 'Sonido envolvente inalámbrico', '600.00', 25, 3, 'Oferta', 1, 0, 1, '2026-03-30 21:43:27'),
+(7, 'PROD007', 'Licuadora', 'OSTER', 'Licuadora de alta potencia', '850.00', 7, 4, 'Nuevo', 1, 0, 1, '2026-03-30 21:43:27'),
+(8, 'PROD008', 'Silla Gamer', 'GM', 'Silla ergonómica para gaming', '2500.00', 4, 4, 'Popular', 1, 0, 1, '2026-03-30 21:43:27'),
+(9, 'PROD009', 'Balón de fútbol', 'MOLTEN', 'Balón profesional', '400.00', 30, 5, 'Oferta', 1, 0, 1, '2026-03-30 21:43:27'),
+(10, 'PROD010', 'Mancuernas 10kg', 'WILSON', 'Set de mancuernas', '950.00', 12, 5, 'Nuevo', 1, 0, 1, '2026-03-30 21:43:27'),
+(11, 'PROD011', 'Colores Prisma', 'WILSON', '48 Colores prsma color premier', '2230.00', 1, 9, 'Nuevo', 1, 1, 1, '2026-03-30 21:43:27'),
+(12, 'PROD012', 'Balon molten 3800', 'Molten', 'Balon molten', '980.00', 1, 8, 'Nuevo', 1, 0, 1, '2026-04-02 21:31:03');
 
 -- --------------------------------------------------------
 
@@ -140,7 +142,8 @@ INSERT INTO `productos_imagenes` (`id_imagen`, `id_producto`, `url_imagen`, `pri
 (8, 8, '/vitrina/assets/img/laptop.png', 1, '2026-03-30 21:43:38'),
 (9, 9, '/vitrina/assets/img/laptop.png', 1, '2026-03-30 21:43:38'),
 (10, 10, '/vitrina/assets/img/laptop.png', 1, '2026-03-30 21:43:38'),
-(11, 11, '/vitrina/assets/img/prisma_color.jpg', 1, '2026-04-01 19:09:08');
+(11, 11, '/vitrina/assets/img/prisma_color.jpg', 1, '2026-04-01 19:09:08'),
+(12, 12, '/vitrina/assets/img/B7G3800.webp', 1, '2026-04-02 21:33:42');
 
 -- --------------------------------------------------------
 
@@ -223,13 +226,13 @@ ALTER TABLE `configuracion`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `productos_imagenes`
 --
 ALTER TABLE `productos_imagenes`
-  MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

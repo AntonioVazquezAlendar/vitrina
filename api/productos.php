@@ -11,6 +11,7 @@ function obtenerProductos() {
                 p.marca, -- <--- Nuevo campo agregado
                 p.precio,
                 p.id_categoria,
+                p.por_encargo,
                 p.etiqueta,
                 c.nombre AS categoria_nombre,
                 i.url_imagen
